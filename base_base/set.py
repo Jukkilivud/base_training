@@ -94,7 +94,7 @@ a_set = set(a_list)
 a_list = list(a_set)
 print(a_list)
 
-a_str = '1', '2', '2'
+a_str = '122'
 b_set = set(a_str)
 a_str = str(b_set)
 print(a_str)
