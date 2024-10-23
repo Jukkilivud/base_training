@@ -1,3 +1,8 @@
+print('\n'*2)
+
+print('Jukki'.center(49, '*'), '\n')
+
+
 a_string = 'Alex'
 a_string_2 = 'Jukki'
 print(a_string + ' ' + a_string_2)
@@ -24,3 +29,5 @@ word = a_string.isalpha()
 print(word)
 word_2 = 'Alex'.isalpha()
 print(word_2)
+print(x.endswith('kki'))
+print(x.startswith('J'))
