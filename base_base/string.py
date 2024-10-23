@@ -30,4 +30,10 @@ print(word)
 word_2 = 'Alex'.isalpha()
 print(word_2)
 print(x.endswith('kki'))
-print(x.startswith('J'))
+print(x.startswith('J'), '\n')
+
+a_str = "hello my people"
+print(a_str.title())
+print(a_str.capitalize())
+print(a_str.istitle())
+print(a_str.upper())
