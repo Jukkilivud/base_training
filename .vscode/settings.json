@@ -4,7 +4,8 @@
         "ghij",
         "nicka",
         "selftaught",
-        "дейкстра"
+        "дейкстра",
+        "файналли"
     ],
     "python.analysis.autoImportCompletions": true,
     "python.testing.unittestArgs": [
