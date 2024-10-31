@@ -8,7 +8,7 @@ try:
 except:
     print("Данный файл не найден!" + " File not found!")
 finally:
-    x = open("README.txt", 'r')
+    x = open("try_except\README.txt", 'r')
     print(*x)
     x.close()
 print("Program finished", '\n')
@@ -24,7 +24,7 @@ except FileNotFoundError:
 except Exception:
     print("Что-то пошло не так..." + " Something gone wrong...")
 finally:
-    x = open("README.txt", 'r')
+    x = open("try_except\README.txt", 'r')
     print(*x)
     x.close()
 print("Program finished", '\n')
@@ -33,7 +33,7 @@ print("Program finished", '\n')
 print("Program started")
 try:
     print("Opening file...")
-    f = open("README.txt", 'r+')
+    f = open("try-except\README.txt", 'r+')
     print(*f)
     try:
         print("Запись в файл" + " Writing to file...")
@@ -45,7 +45,7 @@ try:
 except FileNotFoundError:
     print("Данный файл не найден!" + " File not found!")
 finally:
-    x = open("README.txt")
+    x = open("try_except\README.txt")
     print(*x)
     x.close()
 print("Program finished")
