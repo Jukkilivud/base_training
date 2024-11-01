@@ -1,9 +1,33 @@
-# Конструкция with/as которая не требует указывать закрытие файла .close()
+import logging
+
+
+# Создание пользовательского исключения
 print("Program started")
 try:
-    print("Запись в файл" + " Writing to file...")
-    with open('README.txt', 'r+') as f:
-        f.write(" Использование конструкции" + " with/as..")
-except Exception:
-    print("Что-то пошло не так..." + " Something gone wrong...")
-print("Program finished")
+    raise Exception("User Exception!")
+except Exception as e:
+    print(str(e))
+print("Program finished", '\n')
+
+
+# class NegativeAge(Exception):
+#     pass
+
+
+# print("Program started")
+# try:
+#     age = int(input("Введите ваш возраст: "))
+#     if age < 18 or age > 99:
+#         raise NegativeAge("Exception: Пшол вон отсюда!!!")
+#     print('Добро пожаловать!')
+# except NegativeAge as e:
+#     print(e)
+# print("Program finished", '\n')
+
+
+# Запись исключений в лог.
+logging.basicConfig(filename="log.txt", level=logging.INFO)
+try:
+    print(10 / 0)
+except Exception as x:
+    logging.error(str(x))
