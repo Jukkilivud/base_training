@@ -34,7 +34,7 @@ class Point:
 try:
     p = Point()
     p.reset()
-except AttributeError:
+except NameError:
     print("Атрибут не найден (нет такой переменной)")
 except TypeError:
     print("Лошара, забыл self добавить, надо Point(self)!", '\n')
