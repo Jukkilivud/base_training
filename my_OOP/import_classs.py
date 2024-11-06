@@ -1,0 +1,1 @@
+from classs import Point
