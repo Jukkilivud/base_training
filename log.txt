@@ -17,7 +17,10 @@ ERROR:root:division by zero
 INFO:root:Выведи и это
 ERROR:root:division by zero
 INFO:root:Выведи и это
+<<<<<<< HEAD
 ERROR:root:division by zero
 INFO:root:Выведи и это
 ERROR:root:division by zero
 INFO:root:Выведи и это
+=======
+>>>>>>> abe94235b3d31980785278df29ae15d5839dac65
