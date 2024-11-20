@@ -4,7 +4,7 @@ import logging
 # Создание пользовательского исключения
 print("Program started")
 try:
-    raise Exception("User Exception!")
+    raise Exception("Пользовательское исключение!")
 except Exception as e:
     print(str(e))
 print("Program finished", '\n')
