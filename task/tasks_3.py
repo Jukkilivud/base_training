@@ -39,7 +39,7 @@ if word_1[-1:] == word_2[:1]:
     print('True', '\n')
 
 # Дана некоторая строка. Найдите позицию третьего нуля в строке.
-str_3 = '03000303'
+str_3 = '0000303'
 count = 0
 position = -1
 for i, char in enumerate(str_3):
@@ -49,3 +49,29 @@ for i, char in enumerate(str_3):
             position = i
             break
 print(position)
+
+# Найдите сумму этих чисел.
+str_4 = '12, 34, 56'
+numbers = [int(num) for num in str_4.split(',')]
+sum_numbers = sum(numbers)
+print(sum_numbers)
+
+# Преобразуйте эту дату в следующий словарь:
+date = '2025-12-31'
+year, month, day = date.split('-')
+dict_date = {
+    'year': year,
+    'month': month,
+    'day': day
+}
+print(dict_date)
+
+# Получите сет его значений:
+dict_2 = {
+    'a': 1,
+    'b': 2,
+    'c': 3,
+    'd': 4,
+}
+dd = set(dict_2.values())
+print(dd)
