@@ -20,4 +20,5 @@ INFO:root:Выведи и это
 ERROR:root:division by zero
 INFO:root:Выведи и это
 ERROR:root:division by zero
+INFO:root:Выведи и этоERROR:root:division by zero
 INFO:root:Выведи и это
