@@ -54,3 +54,35 @@ set_1 = {1, 2, 3}
 set_2 = {4, 5, 6}
 set_1.update(set_2)
 print(set_1)
+
+# Дана строка. Удалите из нее все гласные буквы.
+str_1 = 'asdfo'
+vowels = 'aeoui'
+str_1 = ''.join([char for char in str_1 if char.lower()not in vowels])
+print(str_1)
+
+# Получите сет их общих элементов:
+st_1 = {1, 2, 3, 4, 5}
+st_2 = {4, 5, 6, 7, 8}
+st_total = st_1.intersection(st_2)
+print(st_total)
+
+# Получите сет элементов, входящих только в один из сетов:
+st_diff = st_1.symmetric_difference(st_2)
+print(st_diff)
+
+# Дан текст со словами. Запишите в список все слова, начинающиеся на букву 'a'.
+text_book = 'sdf affd aeew vv ajj'
+text_list = []
+for w in text_book.split():
+    if w.startswith('a'):
+        text_list.append(w)
+print(text_list)
+
+# Дан список со числами. Проверьте, что все элементы этого списка являются положительными числами.
+list_numbers = [10, 11, -34, 4432, 16]
+for i in list_numbers:
+    if int(i) > 0:
+        print('Ok')
+    elif int(i) < 0:
+        print(f"Ошибка, число: {i} является отрицательным!")
