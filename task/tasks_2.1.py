@@ -81,9 +81,11 @@ print(text_list)
 
 # Дан список с числами. Проверьте, что все элементы этого списка являются положительными числами.
 list_numbers = [10, 11, -34, 4432, 16]
+all_positive = all(num > 0 for num in list_numbers)
+print(all_positive)
 for i in list_numbers:
     if int(i) > 0:
-        print('Ok')
+        print('Ok', end=' ')
     elif int(i) < 0:
         print(f"Ошибка, число: {i} является отрицательным!")
 
@@ -91,7 +93,7 @@ for i in list_numbers:
 lst_2 = [1, 2, 3, 4, 5]
 lst_3 = [4, 5, 6, 7, 8]
 st = set(lst_2) & set(lst_3)
-print(list(st))
+print('\n', list(st))
 
 # Сделайте строку, содержащую столько нулей, сколько указано в переменной. В нашем случае получится такая строка:
 num_2 = 5
