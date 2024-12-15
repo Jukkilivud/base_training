@@ -91,3 +91,59 @@ print(filter_lst)
 
 # Найдите все числа от 1 до 1000, сумма цифр которых равна 13. Результат запишите в сет.
 set_num = set()
+for i in range(1, 1001):
+    if sum(int(i) for i in str(i)) == 13:
+        set_num.add(i)
+print(set_num, '\n')
+
+# Сделайте так, чтобы в нем каждый элемент повторился два раза: [1, 1, 2, 2, 3, 3]
+lst_4 = [1, 2, 3]
+lst_41 = []
+for i in lst_4:
+    lst_41 += i, i
+print(lst_41)
+
+lst_41 = [i for i in lst_4 for _ in range(2)]
+print(lst_41, '\n')
+
+# Переберите эти списки одним циклом и в каждой итерации выводите их элементы следующим образом: '1,4' '2,5' '3,6'
+lst1 = [1, 2, 3]
+lst2 = [4, 5, 6]
+for i, j in zip(lst1, lst2):
+    print(f"{i},{j}")
+
+# Дан список чисел и число. Оставьте в списке только те числа, которые являются делителями заданного числа.
+num_2 = [3, 4, 6, 1, 8, 12, 11]
+num_division = 2
+filter_num = [i for i in num_2 if i % num_division == 0]
+print(filter_num, '\n')
+
+# Дан список с числами. После каждого однозначного числа вставьте еще такое же.
+num_3 = [3, 4, 6, 1, 8, 12, 11, 7]
+num_duble = [i for i in num_3 for _ in range(2) if len(str(i)) == 1]
+print(num_duble, '\n')
+
+# Даны два числа. Получите список цифр, которые есть и в одном, и во втором числе.
+n = 1234
+n2 = 3456
+inter = set(str(n)).intersection(set(str(n2)))
+print(list(inter))
+
+
+def inter(n, n2):
+    s = set(str(n))
+    s2 = set(str(n2))
+    return list(s.intersection(s2))
+
+
+print(inter(1234, 3456), '\n')
+
+# Дано число. Получите список позицией всех цифр 3 в этом числе, за исключением первой и последней.
+n3 = 132303
+positions = [i for i in range(1, len(str(n3)) - 1) if str(n3)[i] == '3']
+print(positions)
+
+# Дан список с числами. Оставьте в нем числа, состоящие из разных цифр, а остальные удалите.
+lst3 = [11, 43, 44, 55, 934]
+filter_lst2 = [num for num in lst3 if len(set(str(num))) == len(str(num))]
+print(filter_lst2)
