@@ -53,4 +53,16 @@ even_list = []
 for i in range(10, 1001):
     if str(i)[0] in ['2', '4', '6', '8']:
         even_list.append(i)
-print(even_list)
+print(even_list, '\n')
+
+# Найдите сумму элементов этого списка.
+lst5 = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+]
+sum_list = 0
+for i in lst5:
+    for j in i:
+        sum_list += j
+print(sum_list)
