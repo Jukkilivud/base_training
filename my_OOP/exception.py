@@ -54,3 +54,24 @@ for choice in some_exception:
         print("Этот код вызывается, если исключение отсутствует")
     finally:
         print("Этот код вызывается всегда")
+
+
+# Создание шаблонов CSV
+class InvalidSampleError:
+    """Файл исходных данных имеет недопустимое представление данных"""
+
+
+@classmethod
+def from_dict(cls, row: dict[str, str]) -> "KnownSample":  # type:ignore
+    if row['species'] not in {"Iris-setosa", "Iris-versecolour", "Iris-virginica"}:
+        raise InvalidSampleError(f"invalid species in {row!r}")
+    try:
+        return cls(
+            species=row['species'],
+            sepal_lenght=float(row["sepal_lenght"]),
+            sepal_width=float(row["sepal_width"]),
+            petal_lenght=float(row["petal_lenght"]),
+            petal_width=float(row["petal_width"]),
+        )
+    except ValueError as exc:
+        raise InvalidSampleError(f"invalid {row!r}")
