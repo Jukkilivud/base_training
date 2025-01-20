@@ -6,7 +6,7 @@ class Sample:
         self.sepal_length = sepal_length
         self.sepal_width = sepal_width
         self.petal_length = petal_length
-        self. petal_width = petal_width
+        self.petal_width = petal_width
         self.species = species
         self.classification: Optional[str] = None
 
@@ -22,7 +22,12 @@ class Sample:
         return (f"{known_unknown}(" f"sepal_length={self.sepal_length}, " f"sepal_width={self.sepal_width}, " f"petal_length={self.petal_width}, " f"petal_width={self.petal_width}," f"species={self.species!r}" f"{classification}"  f")")
 
 
+s = Sample(1, 2, 3, 4, 5)
+print(s, '\n')
+
 # Наследование
+
+
 class Contact:
     all_contacts: List["Contact"] = []
 

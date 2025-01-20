@@ -85,4 +85,53 @@ lst1 = [
 ]
 fs = [num for sublist1 in lst1 for sublist2 in sublist1 for num in sublist2]
 ss = sum(fs)
-print(ss)
+print(ss, '\n')
+
+# Дан список с числами. Оставьте в нем только те числа, которые делятся на 5.
+list12 = [1, 5, 15, 8]
+filtered_list = [i for i in list12 if i % 5 == 0]
+print(filtered_list, '\n')
+
+# Дано число. Проверьте, что у этого числа есть только один делитель, кроме него самого и единицы.
+n = 6
+if int(n ** 0.5) ** 2 == n:
+    result = True
+    for i in range(2, int(n ** 0.5)):
+        if n % i == 0:
+            result = False
+            break
+else:
+    result = False
+print(result)
+
+# Найдите сумму элементов этого словаря.
+
+
+def sum_dict_values(dct_1):
+    sum_values = 0
+    for values in dct.values():
+        if sum(values):
+            sum_values += sum(values)
+    return sum_values
+
+
+print(sum_values)
+
+
+dct_1 = {
+    1: {
+        1: 11,
+        2: 12,
+        3: 13,
+    },
+    2: {
+        1: 21,
+        2: 22,
+        3: 23,
+    },
+    3: {
+        1: 24,
+        2: 25,
+        3: 26,
+    },
+}
