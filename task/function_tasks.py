@@ -95,3 +95,75 @@ def x(num1, num2):
 x(12, 15)
 x(12, 54)
 x('gdf', 'ghe')
+
+# 1.2.6
+
+a = [1, 2, 3, 4, 5, 6]
+
+
+def slice(lst1):
+    print(lst1[:3])
+
+
+slice(a)
+
+# 1.3.1
+
+
+def str_singl(string) -> str:
+    if len(string) > 1:
+        print(string[-2:-1])
+
+
+str_singl('assdgfsdgd')
+
+# 1.3.2
+
+
+def division_num(num1, num2) -> str:
+    if num1 % num2 == 0:
+        print('True')
+    else:
+        print('False')
+
+
+division_num(10, 5)
+division_num(10, 3)
+
+# 1.3.3
+
+
+def getting_characters(string) -> list:
+    print(list(string))
+
+
+getting_characters('abcdfg')
+
+# 1.3.4
+lst = [1, 2, 3, 4, 5, 6]
+print(lst[2:5])
+
+# 1.3.5
+
+
+def data_format(data: dict) -> str:
+    x = dict.values(data)
+    print('-'.join(x))
+
+
+data_format({'y': '2025', 'm': '12', 'd': '31'})
+
+# 1.3.6
+
+
+def integers(num1, num2):
+    for z in range(num1, num2 + 1):
+        print(z, end=' ')
+
+
+integers(1, 100)
+integers(-100, 0)
+integers(100, 1)
+
+# for z in range(100, 1, -1):
+#     print(z, end=' ')
