@@ -148,7 +148,7 @@ print(lst[2:5])
 
 def data_format(data: dict) -> str:
     x = dict.values(data)
-    print('-'.join(x))
+    print('-'.join(x), '\n')
 
 
 data_format({'y': '2025', 'm': '12', 'd': '31'})
@@ -163,7 +163,43 @@ def integers(num1, num2):
 
 integers(1, 100)
 integers(-100, 0)
-integers(100, 1)
 
-# for z in range(100, 1, -1):
-#     print(z, end=' ')
+for z in range(100, 0, -1):
+    print(z, end=' ')
+
+
+def even_nums(num1: int, num2: int):
+    print('\n', 'Чётные числа: ')
+    for num in range(num1, num2):
+        if num % 2 == 0:
+            print(num, end=' ')
+    print('\n', 'Кратные трём: ')
+    for t in range(num1, num2):
+        if t % 3 == 0:
+            print(t, end=' ')
+
+
+even_nums(1, 100)
+# even_nums(9, 100)
+
+lst1 = [1, 2, 3, 4, 5, 6]
+print('\n', lst1[-2:])
+
+s = 'abcdeabc'
+print(list(s[:5]))
+
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+for i in a:
+    if i < 5:
+        print(i, end=' ')
+
+a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+c = set(a) & set(b)
+print(list(c))
+
+
+a = 'asd'
+b = 'dsa'
+if a == b[::-1]:
+    print('palindrom')
