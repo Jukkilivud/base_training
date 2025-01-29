@@ -1,16 +1,18 @@
 # 1.1
 def negative_num(num):
     if num >= 0:
-        print('Positive')
+        return ('Positive')
     else:
-        print('Negative')
+        return ('Negative')
 
 
-negative_num(10)
-negative_num(-10)
-
+x = negative_num(10)
+y = negative_num(-10)
+print(x, y)
 
 # 1.2
+
+
 def random_string(string):
     print(f"Длинна строки {len(string)} символа.")
 
@@ -203,3 +205,210 @@ a = 'asd'
 b = 'dsa'
 if a == b[::-1]:
     print('palindrom')
+
+
+def problem(a):
+    if isinstance(a, str):
+        return 'Error'
+    elif isinstance(a, int):
+        return (a*50+6)
+
+
+f = problem(5)
+print(f)
+
+
+def sum_num(*num1: int):
+    sumnum = 0
+    for i in range(*num1):
+        sumnum += i
+    return sumnum
+
+
+d = sum_num(1, 100)
+print(f"Сумма всех целых чисел = {d}")
+
+
+def strds(n: int, n2: int):
+    sumnum = 0
+    for i in range(n, n2):
+        if i % 2 == 0:
+            sumnum += i
+    return sumnum
+
+
+s = strds(1, 100)
+print(f"Чётные числа, сумма = {s}")
+
+
+def strds(*n: int):
+    sumnum = 0
+    for i in range(*n):
+        if i % 2 != 0:
+            sumnum += i
+    return sumnum
+
+
+s = strds(1, 100)
+print(f"Сумма всех нечётных чисел = {s}")
+
+
+def remains_division(n: int, n1: int) -> int:
+    return n % n1
+
+
+j = remains_division(10, 3)
+print(f"Остаток от деления = {j}")
+
+lst2 = [1, 2, 3, 4, 5, 6]
+print(lst2[::2])
+print(sum(lst2))
+
+sum_root = 0
+for i in lst2:
+    sum_root += i*2
+print(sum_root)
+
+
+def list_positive(lis: list):
+    s = 0
+    for num in lis:
+        if num >= 0:
+            s += num
+    return s
+
+
+d = list_positive([1, 2, -3, -5, 4])
+print(d)
+
+
+def ss(lst):
+    list_one = 0
+    for num in lst:
+        if 0 < num < 10:
+            list_one += num
+    return list_one
+
+
+s = ss([-1, 2, -3, 4, 5, 11])
+print(s)
+
+
+str1 = 'abcde'
+for i in str1[::-1]:
+    print(i, end='')
+
+print(list(str1))
+
+dct = {'a': 1, 'b': 2, 'c': 3, 'd': 4, }
+sum_dict = sum(dct.values())
+print(sum_dict)
+dct2 = {'Ключ-'+k: v*2 for k, v in dct.items()}
+print(f"Какждое значение словаря {dct} увеличено в 2 раза: {dct2}")
+print("Значения словаря {dct} = ", list(dct.values()))
+
+
+sum_dict2 = 0
+for i in dct.values():
+    sum_dict2 += i ** 2
+print(sum_dict2)
+
+num = 12345
+print(list(str(num)))
+print(list(str(num))[::-1])
+print(str(num)[::-1])
+
+num1 = list(str(num))
+sum_num1 = sum(int(digit) for digit in num1)
+print(sum_num1)
+
+tpl = (1, 2, 3, 4, 5)
+sm = sum(tpl)
+print(sm)
+
+list_num = [1, 2, 3, 4, 5]
+num_10 = 0
+for i in list_num:
+    num_10 += (int(i) + (int(i)/100*10))
+    num_1 = (int(i) + (int(i)/100*10))
+    print(f"Число {i} увеличенно на 10%: {num_1}")
+print(f"Сумма чисел, увеличенных на 10% = {num_10}")
+
+str2 = 'abcdef'
+print(str2[:3])
+print(str2[::2])
+
+
+def http(string: list):
+    str3 = []
+    str3 = [string for string in string if string.startswith('http://')]
+    # for i in string:
+    #     if str(i) == 'http://':
+    #         str3.append(i)
+    return str3
+
+
+x = http(['122', 'http://', 'sdf', 'etfg'])
+print(x)
+
+
+def zero_position(string: str):
+    zero = list(string).index('0')
+    return f"Функция, позиция первого нуля = {zero}"
+
+
+zp = zero_position(('123403000'))
+print(zp)
+
+sd = '23030'
+dd = list(sd).index('0')
+print(f"Позиция первого нуля в строке {sd} = {dd}")
+
+
+def variable(list_var: list, valuee: any) -> list:
+    new_list = [item for item in list_var if item != valuee]
+    return new_list
+
+
+jj = variable([1, 2, 3, 4, 4], 4)
+print(jj)
+
+for var in range(10, 1000):
+    if int(str(var)[0]) + int(str(var)[1]) == 5:
+        print(var, end=', ')
+
+str3 = 'abcdeabc'
+ddd = set(str3)
+print(''.join(ddd))
+
+
+def negative_number(lst: list) -> int:
+    negative = []
+    for num in lst:
+        if num < 0:
+            negative.append(num)
+    return len(negative)
+
+
+a = negative_number([-16, 1, -5, -1, -2])
+print(f"Отрицательных чисел в этом списке: {a} числа(-ел). ")
+
+lst3 = [-123, 1, 2, -3, -4, 76]
+positive_list = []
+for i in lst3:
+    if i >= 0:
+        positive_list.append(i)
+        print(positive_list)
+
+string = 'asdf'
+new_list = list(string)
+new_list.pop((-2))
+print(''.join(new_list))
+
+str4 = ['sdf.html', 'sdfs.ru', 'sde.html']
+ff = [i for i in str4 if i.endswith('.html')]
+print(ff)
+
+list_float = [1.456, 2.125, 3.32, 4.1, 5.34]
+intr = [round(i, 1) for i in list_float]
+print(intr)
