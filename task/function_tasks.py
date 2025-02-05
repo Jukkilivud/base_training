@@ -412,3 +412,46 @@ print(ff)
 list_float = [1.456, 2.125, 3.32, 4.1, 5.34]
 intr = [round(i, 1) for i in list_float]
 print(intr)
+
+
+def one_second(word1: str, word2: str) -> str:
+    if word1[-1:] == word2[:1]:
+        return True
+    else:
+        return False
+
+
+x = one_second('som', 'moon')
+cc = one_second('sdf', 'sdfe')
+print(x, cc)
+
+
+def find_third_zero(string):
+    count = 0
+    for i, char in enumerate(string):
+        if char == '0':
+            count += 1
+            if count == 3:
+                return i
+    return -1, ('В строке меньше трёх нулей!')
+
+
+print(find_third_zero(string='0100'), end=' ')
+w = find_third_zero('010103')
+w1 = find_third_zero('4050')
+print(w, w1)
+
+numbers = '12, 34, 56'
+numbers = numbers.split(',')
+count = 0
+for i in numbers:
+    if len(i) >= 1:
+        count += int(i)
+print((count))
+
+
+def сумма_двух_чисел(arg1: int, arg2: int) -> int:
+    return arg1 + arg2
+
+
+print(сумма_двух_чисел(10, 10000))
