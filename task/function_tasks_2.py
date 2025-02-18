@@ -195,3 +195,84 @@ txt1 = 'abcde'
 txt2 = '12345'
 dict1 = {k: v for k, v in zip(txt1, txt2)}
 print(dict1)
+
+
+def num_word(st: str) -> str:
+    word = sum(1 for i in st if i.isalpha())
+    print('\n', word)
+    if word <= 3:
+        return f'Меньше 3х букв: {word} буквы.'
+    else:
+        return f'Больше 3х букв: {word} буквы.'
+
+
+x1 = num_word('asd222')
+x11 = num_word('2kdssdd1')
+print(x1)
+print(x11)
+
+
+def odd_num(numbers: int) -> int:
+    try:
+        numbers = str(numbers)
+        odd = []
+        for i in numbers:
+            if int(i) % 2 == 0:
+                odd.append(i)
+        return odd[-1]
+    except:
+        return f'{'<<numbers>>'} Передайте в функцию число, а не строку и прочую поебистику!!!'
+
+
+x2 = odd_num(1345678)
+x22 = odd_num(2466664)
+x222 = odd_num('asdf')
+
+print(x2, x22, x222)
+
+
+string1 = 'abcde abcde abcde'
+replace = string1.replace('a', '!')
+print(replace)
+print(type(replace))
+
+
+list2 = ['1', '2', '3', '4', '5']
+summ = 0
+for i in list2:
+    summ += int(i)
+print(f"Сумма списка {list2} равна {summ}.")
+
+new_list = [i for i in range(1, 10, 2)]
+print(new_list)
+
+tpl1 = (1, 2, 3)
+tpl2 = (4, 5, 6)
+print(tpl1 + tpl2)
+
+dct1 = {'a': 1, 'b': 2, }
+dct2 = {'c': 3, 'd': 4, }
+dct1.update(dct2)
+print(dct1)
+
+
+def uneven(nums: int) -> bool:
+    nums = str(nums)
+    """Посдсчёт нечётных элементов в числе. Если счётчик больше единицы, значит в числе есть нечётные элементы. Иначе все элементы в числе чётные."""
+    count = 0
+    try:
+        for i in nums:
+            if int(i) % 2 != 0:
+                count += int(i)
+                if count > 0:
+                    # Надо решить, почему останавливается на первой проверки элемента! Сделать вывод всех нечётных элементов!
+                    return False, f'{count}'
+        return True, f"{count}"
+    except:
+        return f"\nВместо {nums} введите в функцию число!"
+
+
+z1 = uneven(13579)
+z2 = uneven(24680)
+z3 = uneven('asdf')
+print(z1, z2, z3)
