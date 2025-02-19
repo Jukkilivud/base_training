@@ -260,14 +260,16 @@ def uneven(nums: int) -> bool:
     nums = str(nums)
     """Посдсчёт нечётных элементов в числе. Если счётчик больше единицы, значит в числе есть нечётные элементы. Иначе все элементы в числе чётные."""
     count = 0
+    odd_nums = []
     try:
         for i in nums:
             if int(i) % 2 != 0:
                 count += int(i)
-                if count > 0:
-                    # Надо решить, почему останавливается на первой проверки элемента! Сделать вывод всех нечётных элементов!
-                    return False, f'{count}'
-        return True, f"{count}"
+                odd_nums.append(i)
+        if count >= 0:
+            # Надо решить, почему останавливается на первой итерации элемента! Сделать вывод всех нечётных элементов!
+            return False, f'Нечётные числа: {odd_nums}'
+        return True, f"Нечётные числа: 0 {odd_nums}"
     except:
         return f"\nВместо {nums} введите в функцию число!"
 
@@ -275,4 +277,126 @@ def uneven(nums: int) -> bool:
 z1 = uneven(13579)
 z2 = uneven(24680)
 z3 = uneven('asdf')
-print(z1, z2, z3)
+z4 = uneven([2213])
+print('\n', z1, '\n', z2, '\n', z3, '\n', z4, '\n')
+
+
+def palindrom(string: str) -> str:
+    string = str(string)
+    if string == string[::-1]:
+        return f"Слово {string} читается одинаково с начала и с конца."
+    else:
+        return f"Слово {string} не является палиндромом."
+
+
+pal = palindrom('afssfa')
+pal11 = palindrom('qwerty ytrewq')
+pal1 = palindrom(123)
+pal2 = palindrom('afssf')
+pal3 = palindrom(False)
+print('\n\n', pal, '\n\n', pal1, '\n\n', pal2, '\n\n', pal3, '\n\n', pal11)
+
+
+st1 = {1, 2, 3}
+st2 = {4, 5, 6}
+print(st1 | st2)
+print(st1.union(st2))
+
+
+def vowel_letters(string: str) -> str:
+    symbol = ['a', 'o', 'i', 'u', 'e']
+    not_vowels = ''
+    try:
+        for letter in string:
+            if letter not in symbol:
+                not_vowels += letter
+        return [f'Так выглядит строка {string} без гласных:', not_vowels]
+    except:
+        return f"Вместо: {string} введи строку."
+
+
+s1 = vowel_letters('aselkudfio')
+s2 = vowel_letters(123)
+s3 = vowel_letters(True)
+print(s1)
+print(s2)
+print(s3)
+
+stt1 = {1, 2, 3, 4, 5}
+stt2 = {4, 5, 6, 7, 8}
+print(stt1 & stt2)
+print(stt1.intersection(stt2))
+print(stt1 ^ stt2)
+print(stt1.symmetric_difference(stt2))
+
+
+def word_text(txt: str) -> list:
+    new_text = []
+    words = txt.split()  # Разбиваем текст на слова
+    for word in words:
+        if word.lower().startswith('a'):  # Проверяем, начинается ли слово с 'a'
+            new_text.append(word)
+    return new_text
+
+
+text = word_text('asd dee ato cea')
+print(text)
+
+
+def positive(nums: list):
+    for i in nums:
+        if int(i) < 0:
+            return (f"В списке {nums} отрицательное число: {i}")
+    return f"В сриске {nums} все числа положительные"
+
+
+nf = positive([1, 2])
+print(nf)
+nf = positive([1, 2, -3, -4])
+print(nf)
+nf = positive([-1, -2, -3, -4])
+print(nf)
+nf = positive([0, 0, 0])
+print(nf)
+
+lst1 = [1, 2, 3, 4, 5]
+lst2 = [4, 5, 6, 7, 8]
+lst_new = set(lst1) & set(lst2)
+print(list(lst_new))
+
+
+def num_count(param: int) -> str:
+    print('0'*param)
+
+
+num_count(5)
+
+
+def double_list(lst1: list, lst2: list) -> bool:
+    if set(lst1).issuperset(set(lst2)):
+        return True
+    return False
+
+
+dou = double_list([1, 2, 3, 4, 5], [1, 2, 3])
+print(dou)
+dou1 = double_list([3, 4, 5], [1, 2, 3])
+print(dou1)
+
+
+def upper_last(text: str) -> str:
+    new_text = []
+    """Разбиваем строку на слова и делаем каждую последнюю букву слова заглавной."""
+    word = text.split()
+    for w in (word):
+        if w[-1:].lower():
+            new_text.append(w[:-1] + w[-1:].upper())
+        else:
+            new_text.append(w)
+    return ' '.join(new_text)
+
+
+new = upper_last("asd hrg hello")
+print(new)
+new1 = upper_last("hellof hellof helloF")
+print(new1)
