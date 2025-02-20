@@ -400,3 +400,43 @@ new = upper_last("asd hrg hello")
 print(new)
 new1 = upper_last("hellof hellof helloF")
 print(new1)
+
+
+def even_n(txt: str) -> str:
+    numm = []
+    for num in txt:
+        if int(num) % 2 != 0:
+            numm.append(num)
+            if len(numm) > 0:
+                return f"В строке {txt} есть нечётные цифры."
+    return f"В строке {txt} все цифры чётные."
+
+
+n = even_n('244680')
+print(n)
+n = even_n('32541479')
+print(n)
+n = even_n('2')
+print(n, '\n')
+
+str01 = '12345'
+str02 = '45678'
+inter = set(str01) & set(str02)
+print(''.join(inter))
+
+
+# НЕ РАБОТАЕТ.  ДОЛБАЁБ ДОРАБОТАЙ
+def three_word(txt: str) -> str:
+    word3 = ''
+    what = txt.split()
+    for w in what:
+        if len(w) >= 3:
+            word3 += (w)
+        if len(str(w)) < 3:
+            word3.upper()
+
+    return word3
+
+
+up = three_word("a bc def ghij")
+print(up)
