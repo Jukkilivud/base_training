@@ -425,18 +425,125 @@ inter = set(str01) & set(str02)
 print(''.join(inter))
 
 
-# НЕ РАБОТАЕТ.  ДОЛБАЁБ ДОРАБОТАЙ
 def three_word(txt: str) -> str:
-    word3 = ''
+    word3 = []
     what = txt.split()
     for w in what:
-        if len(w) >= 3:
-            word3 += (w)
-        if len(str(w)) < 3:
-            word3.upper()
-
-    return word3
+        if len(w) <= 3:
+            word3.append(w.upper())
+        else:
+            word3.append(w)
+    return ' '.join(word3)
 
 
 up = three_word("a bc def ghij")
 print(up)
+up1 = three_word("a bc def hij")
+print(up1)
+
+
+def three_num(txt: list) -> str:
+    word4 = str(txt).split()
+    for i in word4:
+        if '3' in i:
+            return True
+        else:
+            return False
+
+
+txt3 = three_num([23, 33, 43, 53])
+print(txt3)
+txt4 = three_num([245, 333, 1343, 1053])
+print(txt4)
+
+nums = 1, 4, 5, 34, 97, 12
+print(max(list(nums)))
+
+str03 = 'kebab-case'
+str003 = str03.replace('kebab-', 'snake_')
+print(str003)
+
+
+def zero_del(list_num: list) -> list:
+    list_zero = []
+    for i in list_num:
+        if '00' not in str(i):
+            list_zero.append(i)
+    return list_zero
+
+
+dell = zero_del([1000, 30000, 23, 4356, 1200])
+print(dell)
+
+
+def set_13(num1: int, num2: int):
+    num_13 = set()
+    for i in range(num1, num2):
+        if sum(int(digit) for digit in str(i)) == 13:
+            num_13.add(i)
+    return sorted(tuple(num_13))
+
+
+sa = set_13(1, 1000)
+print(sa)
+
+list3 = [1, 2, 3]
+print(sorted(list3+list3))
+
+lst01 = [1, 2, 3]
+lst02 = [4, 5, 6]
+for i, j in zip(lst01, lst02):
+    print(f'{i},{j}')
+
+
+def num_division(txt: list, num: int):
+    text_num = []
+    try:
+        for digit in txt:
+            if num % digit == 0:
+                text_num.append(digit)
+        return text_num
+    except:
+        return f"В списке {txt} должны быть только цифры! Это {num} должно быть число!"
+
+
+ssd = num_division([1, 2, 3, 4, 5, 6, 7], 10)
+print(ssd)
+ssd = num_division([1, 'a', d, 3, 4, 5, 6, 7], 'd')
+print(ssd)
+ssd = num_division([1, 'a', d, 3, 4, 5, 6, 7], 12)
+print(ssd)
+
+lst03 = [1, 2, 3, 4, 5, 6, 7]
+new_lst04 = []
+for i in lst03:
+    if len(str(i)) == 1:
+        new_lst04 += (str(i)+str(i))
+print(' '.join(new_lst04))
+print(new_lst04)
+
+digit_1 = 12345
+digit_2 = 34567
+print('\n', list(set(str(digit_1)) & set(str(digit_2))))
+
+for_digit = []
+for i in str(digit_1):
+    for j in str(digit_2):
+        if (i) == (j):
+            for_digit.append(i)
+print('\n', for_digit)
+print(type(for_digit), '\n')
+
+
+def num_3(num2: int) -> list:
+    jj = []
+    for i in str(num2):
+        if i == '3':
+            jj.append(i)
+    return jj[1:-1]
+
+
+jj_num2 = num_3(1133033367)
+print(jj_num2)
+jj_num3 = num_3(333)
+print(jj_num3)
