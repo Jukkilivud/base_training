@@ -537,13 +537,108 @@ print(type(for_digit), '\n')
 
 def num_3(num2: int) -> list:
     jj = []
-    for i in str(num2):
-        if i == '3':
-            jj.append(i)
-    return jj[1:-1]
+    for index, value in enumerate(str(num2)):
+        if value == '3':
+            jj.append(index)
+    return f"Все индексы цифры '3': {jj[1:-1]} из числа {num2}"
 
 
 jj_num2 = num_3(1133033367)
 print(jj_num2)
 jj_num3 = num_3(333)
 print(jj_num3)
+jj_num4 = num_3('asdfasd')
+print(jj_num4)
+
+
+def list_more_num(txt: list) -> list:
+    new_li = []
+    for digit in txt:
+        digits = set(str(digit))
+        if len(digits) == len(str(digit)):
+            new_li.append(digit)
+    return new_li
+
+
+sf = list_more_num([121, 11, 24, 17, 6666, 55])
+print(sf)
+
+l1 = [1, 2, 3]
+l2 = [1, 2, 3, 4, 5]
+l3 = set(l1) & set(l2)
+print(l1, list(l3))
+
+
+def func_revers(txt: list) -> list:
+    t = [int(str(num)[::-1]) for num in txt]
+    return t
+
+
+rev = func_revers([123, 456, 789])
+print(rev)
+
+
+def num_rang(num: int) -> str:
+    if list(str(num)) == sorted(list(str(num)), reverse=False):
+        return True
+    else:
+        return False
+
+
+rang = num_rang(12345)
+print(rang)
+rang_1 = num_rang(54321)
+print(rang_1)
+
+lst_01 = [1, '', 2, 3, '', 5]
+ls = [i for i in lst_01 if i != '']
+print(ls)
+
+lst_02 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+for sublist in lst_02:
+    for elem in sublist:
+        print(elem, end=' ')
+print("\n")
+
+
+def num_div(num: int) -> list:
+    list_div = []
+    for i in range((num+1)):
+        if int(i) != 0 and num % int(i) == 0:
+            list_div.append(int(i))
+    return list_div
+
+
+aa = num_div(12)
+print('\n', aa)
+aa = num_div(122)
+print('\n', aa)
+
+list_enum = []
+for i in range(10, 100+1):
+    if int(str(i)[:1]) % 2 == 0:
+        list_enum.append(i)
+print(list_enum)
+
+
+lst_03 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+lst_003 = []
+for i in lst_03:
+    lst_003 += i
+print(sum(lst_003))
+
+
+def sum_dict_values(dct: dict):
+    total = 0
+    for value in dct.values():
+        if isinstance(value, dict):
+            total += sum_dict_values(value)
+        else:
+            total += value
+    return total
+
+
+dct_sum = sum_dict_values({1: {1: 11, 2: 12, 3: 13, }, 2: {
+    1: 21, 2: 22, 3: 23, }, 3: {1: 24, 2: 25, 3: 26, }, })
+print('\n'f"Сумма всех символов в словаре равна: {dct_sum}", '\n')
+# Посчитаны не все символы, должно быть 201.
