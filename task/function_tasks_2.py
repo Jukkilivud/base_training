@@ -630,11 +630,12 @@ print(sum(lst_003))
 
 def sum_dict_values(dct: dict):
     total = 0
-    for value in dct.values():
+    for key, value in dct.items():
         if isinstance(value, dict):
             total += sum_dict_values(value)
         else:
             total += value
+        total += key
     return total
 
 
@@ -642,3 +643,114 @@ dct_sum = sum_dict_values({1: {1: 11, 2: 12, 3: 13, }, 2: {
     1: 21, 2: 22, 3: 23, }, 3: {1: 24, 2: 25, 3: 26, }, })
 print('\n'f"Сумма всех символов в словаре равна: {dct_sum}", '\n')
 # Посчитаны не все символы, должно быть 201.
+
+lst_04 = [1, 1, 1, 1, 5, 1, 1, 1, 1, 5]
+jj = []
+for i, v in enumerate(lst_04, 1):
+    if i % 5 != 0:
+        jj.append(str(v))
+print(jj)
+
+
+def common_divisors(num1: int, num2: int) -> list:
+    smaller = min(num1, num2)
+    common_divs = []
+    for i in range(1, smaller + 1):
+        if num1 % i == 0 and num2 % i == 0:
+            common_divs.append(i)
+    return common_divs
+
+
+num_4 = 12
+num_5 = 6
+lst_div = common_divisors(num_4, num_5)
+print(f"Общие делители чисел {num_4} и {num_5}: {lst_div}")
+
+txt_1 = 12345
+txt_2 = 45678
+txt_set = set(str(txt_1)) & set(str(txt_2))
+result = tuple(sorted(int(i) for i in txt_set))
+print(result)
+
+big_list = [[[11, 12, 13], [14, 15, 16], [17, 17, 19],],
+            [[21, 22, 23], [24, 25, 26], [27, 27, 29],],
+            [[31, 32, 33], [34, 35, 36], [37, 37, 39],],]
+total = 0
+for i in big_list:
+    for j in i:
+        total += sum((j))
+print(total, type(total))
+
+
+def five_div(lst: list) -> list:
+    divisior_five = []
+    try:
+        for digit in lst:
+            if digit % 5 == 0:
+                divisior_five.append(digit)
+        return divisior_five
+    except:
+        return f"Вместо {lst}, введиите список только с числами."
+
+
+div = five_div([1, 2, 5, 10])
+print(div)
+div1 = five_div([1, 'vf', 2, True, 5, 10])
+print(div1, '\n')
+
+number = 4
+
+
+def one_divisior(number: int) -> str:
+    count_div = []
+    for i in range(1, number+1):
+        if number % i == 0:
+            count_div.append(i)
+    if len(count_div) > 3:
+        return f"У числа {number} больше одного делителя(кроме 1 и его самого)."
+    if len(count_div) <= 3:
+        return f"У числа {number} один делитель (кроме 1 и его самого)."
+
+
+div01 = one_divisior(4)
+print(div01)
+div02 = one_divisior(12)
+print(div02)
+
+
+def sum_elem(dct: dict) -> int:
+    total = 0
+    for key, value in dct.items():
+        if isinstance(value, dict):
+            total += sum_elem(value)
+        else:
+            total += value
+        total += key
+    return total
+
+
+dict01 = sum_elem({1: {1: 11, 2: 12, 3: 13, }, 2: {
+    1: 21, 2: 22, 3: 23, }, 3: {1: 24, 2: 25, 3: 26, }, })
+print(f"Сумма всех элементов в словаре равна: {dict01}", '\n')
+
+for i in range(10, 1000):
+    fg = []
+    if int(str(i)[-2:-1]) % 2 == 0 and len(str(i)) >= 3:
+        fg.append(i)
+        print(*fg, end=', ')
+
+str_01 = '''
+	text1
+	text2
+	text3
+	text4
+	text5
+'''
+text1 = str_01.strip()
+text_line = text1.split('\n')
+text_line = [line.strip() for line in text_line if line.strip() != '']
+print((text_line))
+
+dct = {1: {1: {1: 111, 2: 112, 3: 113, }, 2: {1: 121, 2: 122, 3: 123, }, }, 2: {1: {1: 211, 2: 212, 3: 213, },
+                                                                                2: {1: 221, 2: 222, 3: 223, }, }, 3: {1: {1: 311, 2: 312, 3: 313, }, 2: {1: 321, 2: 322, 3: 323, }, }, }
+sum_dict_element = 0
