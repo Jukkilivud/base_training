@@ -751,6 +751,77 @@ text_line = text1.split('\n')
 text_line = [line.strip() for line in text_line if line.strip() != '']
 print((text_line))
 
+
+def sum_dict_01(dct: dict) -> int:
+    sum_dict_element = 0
+    for key, value in dct.items():
+        if isinstance(value, dict):
+            sum_dict_element += sum_dict_01(value)
+        else:
+            sum_dict_element += value
+        sum_dict_element += key
+    return sum_dict_element
+
+
 dct = {1: {1: {1: 111, 2: 112, 3: 113, }, 2: {1: 121, 2: 122, 3: 123, }, }, 2: {1: {1: 211, 2: 212, 3: 213, },
                                                                                 2: {1: 221, 2: 222, 3: 223, }, }, 3: {1: {1: 311, 2: 312, 3: 313, }, 2: {1: 321, 2: 322, 3: 323, }, }, }
-sum_dict_element = 0
+
+sx = sum_dict_01(dct)
+print(f"Сумма элементов словаря равна: {sx}", '\n')
+
+
+def zero_inside(lst: list) -> list:
+    yes_zero_inside = []
+    for digit in lst:
+        if '0' in str(digit):
+            yes_zero_inside.append(digit)
+    return yes_zero_inside
+
+
+l_d = zero_inside([122, 102, 11, 20])
+print((l_d))
+
+
+lst_05 = [{1: 11, 2: 12, 3: 13, }, {
+    1: 21, 2: 22, 3: 23, }, {1: 24, 2: 25, 3: 26, }]
+t = []
+for k in lst_05:
+    for v in k.items():
+        t += v
+print(sum(t))
+
+
+def three_inside(lst: list) -> list:
+    three_yes = []
+    for digits in lst:
+        for digit in str(digits):
+            if '3' in str(digit):
+                three_yes.append(digit)
+                break
+            if len(three_yes) > 0:
+                return 'Good'
+    return 'No 3 inside list'
+
+
+t_i = three_inside([1, 13, 33, 87, 35])
+print(t_i)
+t_i2 = three_inside([1, 12, 45, 76])
+print(t_i2)
+
+list01 = [
+    {1: (1, 2, 3), 2: (1, 2, 3), 3: (1, 2, 3), },
+    {1: (1, 2, 3), 2: (1, 2, 3), 3: (1, 2, 3), },
+    {1: (1, 2, 3), 2: (1, 2, 3), 3: (1, 2, 3), },
+]
+total_elements = []
+for i in list01:
+    for key, value in i.items():
+        total_elements += (value)
+        total_elements.append(key)
+print("Сумма элементов списка равна:", sum(total_elements))
+
+list02 = ['text1', 'text2', 'text3', 'text4', 'text5']
+for word in list02:
+    print(word)
+result02 = '\n'.join(list02)
+print(result02)
