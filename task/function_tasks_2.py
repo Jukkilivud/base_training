@@ -813,8 +813,8 @@ list01 = [
     {1: (1, 2, 3), 2: (1, 2, 3), 3: (1, 2, 3), },
     {1: (1, 2, 3), 2: (1, 2, 3), 3: (1, 2, 3), },
 ]
-total_elements = []
 for i in list01:
+    total_elements = []
     for key, value in i.items():
         total_elements += (value)
         total_elements.append(key)
@@ -823,5 +823,64 @@ print("Сумма элементов списка равна:", sum(total_elemen
 list02 = ['text1', 'text2', 'text3', 'text4', 'text5']
 for word in list02:
     print(word)
+
 result02 = '\n'.join(list02)
 print(result02)
+
+data = [[x for x in 'xxx'] for i in range(3)]
+print(data)
+
+data_a = [[x for x in range(1, 4)] for i in range(5)]
+print(data_a)
+
+
+text_long = """text1
+text2
+
+text3
+text4
+
+text5
+"""
+k = text_long.split()
+txt_long = ' '.join(k)
+print(txt_long, '\n')
+
+data_b = [[i+j*3 for i in range(1, 4)]for j in range(3)]
+print(data_b)
+
+data_b2 = []
+for i in range(1, 10, 3):
+    sublist02 = [i, i+1, i+2]
+    data_b2.append(sublist02)
+print(data_b2, '\n')
+
+text01 = '''
+	a-1
+	b-2
+	c-3
+	d-4
+	e-5
+'''
+lines = text01.strip().split('\n')
+dct02 = {}
+for line in lines:
+    key, value = line.split('-')
+    dct02[key.strip()] = value.strip()
+
+print(dct02)
+
+list03 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+list_we = []
+for i in list03:
+    for j in i:
+        list_we.append(j)
+print(list_we)
+
+list04 = [[2, 1, 4, 3, 5], [3, 5, 2, 4, 1], [4, 3, 1, 5, 2]]
+for i in list04:
+    i.sort()
+print(f"Отсортированный список -\n {list04}")
+
+[i for i in list04 if i.sort()]
+print(f"Отсортированный список через генератор -\n {list04}")
