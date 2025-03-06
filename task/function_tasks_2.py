@@ -1,3 +1,6 @@
+import datetime
+
+
 data_for = '2025-12-31'
 y, m, d = data_for.split('-')
 date_dict = {'y': y, 'm': m, 'd': d, }
@@ -884,3 +887,63 @@ print(f"Отсортированный список -\n {list04}")
 
 [i for i in list04 if i.sort()]
 print(f"Отсортированный список через генератор -\n {list04}")
+
+
+now = datetime.datetime.now()
+print('\n\n'f"Текущая дата и время: {now}")
+
+
+# def squad(hello_user: str) -> int:
+#     """_summary_
+#     Args:
+#         hello_user (str): Функция просит ввести пользователя любое число.
+#     Returns:
+#         int: Выводится в результате квадратный корень этого числа.
+#     """
+#     return int(hello_user)**2
+
+
+# one_input = squad(hello_user=input('Пожалуйста, введите число: '))
+# print(one_input)
+
+def xxxxx(input1: str) -> str:
+    print(input1 * 5)
+
+
+xxxxx('x')
+
+str04 = 'aaa bbb ccc eee fff'
+str05 = str04.split()
+print(' '.join(str05[::2]))
+
+
+# def in_int():
+#     while True:
+#         try:
+#             hello = input(
+#                 "Пожалуйста, введите дату в формате 'год-месяц-день': ")
+#             year, month, day = map(int, hello.split('-'))
+#             date_now = datetime.datetime(year, month, day)
+#             return date_now
+#         except ValueError:
+#             print("Введите дату в числовом формате")
+
+
+# random_int = in_int()
+# print(f"Сегодня у вас {random_int.strftime('%Y-%m-%d')}")
+
+for i in range(1, 6):
+    print(i, end='')
+
+list11 = [1, 2, 3, 4, 5, 6]
+print('\n', list11[0:2], '\n', list11[2:4], '\n', list11[4:6])
+
+
+def give_me_num(*args) -> list:
+    list_user = []
+    list_user += (args)
+    return sorted(list_user)
+
+
+nowwe = give_me_num(1, 89, 34, 12)
+print(nowwe)
