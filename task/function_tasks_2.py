@@ -1,3 +1,4 @@
+from math import factorial
 import datetime
 
 
@@ -940,10 +941,84 @@ print('\n', list11[0:2], '\n', list11[2:4], '\n', list11[4:6])
 
 
 def give_me_num(*args) -> list:
-    list_user = []
-    list_user += (args)
-    return sorted(list_user)
+    try:
+        list_user = []
+        list_user += (args)
+        return sorted(list_user)
+    except TypeError:
+        return f"Сука, у тебя число просили, а не вот это {args}"
 
 
-nowwe = give_me_num(1, 89, 34, 12)
+nowwe = give_me_num(1, 89, 34563, 13, 34, 12)
 print(nowwe)
+nowwe1 = give_me_num(1, 'dsf', 89, 34, 12)
+print(nowwe1)
+
+for i in range(5, 0, -1):
+    print(i, end='')
+
+print('\n')
+
+list05 = [1, 2, 3, 4, 5, 6]
+for i in range(0, len(list05), 2):
+    list05[i], list05[i+1] = list05[i+1], list05[i]
+print(list05)
+
+
+def factoriial(num: str) -> str:
+    return f"Факториал числа {num} равен {factorial(num)}."
+
+
+user_num = factoriial(5)
+print(user_num)
+
+xxx = 12345
+# xxx2 = '-'.join(str(xxx))
+# print('-'+xxx2, end='-')
+dash = '-' + '-'.join(str(i) for i in range(1, 6)) + '-'
+print(dash)
+
+str06 = '1 22 333 4444 22 5555 1'
+x3 = str06.split()
+print(x3)
+xxxx = []
+for i in x3:
+    if len(i) <= 3:
+        xxxx.append(i)
+print(' '.join(xxxx))
+
+
+def ops_sort(num: int) -> str:
+    try:
+        x01 = sorted(str(num))
+        return int(''.join(x01))
+    except ValueError:
+        return f"Вместо {num}, введите число! \n"
+
+
+num_01 = ops_sort(35124)
+print(num_01)
+num_02 = ops_sort('s')
+print(num_02)
+
+
+# Нужно подобрать формулу для вычисления числа Пифагора!
+c1 = 3, 2, 2
+c2 = sorted(c1)
+if c2[2]**2 == (c2[0]**2 + c2[1]**2) + 1:
+    print("Good")
+else:
+    print("Ungood")
+
+
+def pifagor(n1, n2, n3):
+    c22 = sorted((n1, n2, n3))
+    if c22[2]**2 == (c22[0]**2 + c22[1]**2) + 1:
+        return True
+    return False
+
+
+c2 = pifagor(3, 2, 2)
+print(c2)
+c3 = pifagor(3, 1, 2)
+print(c3)
