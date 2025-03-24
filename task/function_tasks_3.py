@@ -296,3 +296,178 @@ num01 = not_zero(6010)
 print(num01)
 # num02 = not_zero(0.6023410000000)
 # print(num02)
+
+
+def double_list(lst: list) -> list:
+    """Сделайте функцию, которая параметром будет принимать список и удалять из него все дубли."""
+    new_list = []
+    return list(set(lst))
+
+
+lst_1 = double_list([1, 2, 2, 33, 4, 4])
+print(lst_1)
+
+
+def three_double_list(lst: list) -> list:
+    '''Сделайте функцию, которая параметром будет принимать список и удалять из него все дубли, которые встречаются больше трех раз.'''
+    from collections import Counter
+    counter = Counter(lst)
+    new_list = [item for item, count in counter.items() if count <= 3]
+    return new_list
+
+
+lst_2 = three_double_list([1, 2, 2, 4, 4, 2, 2, 1, 1, 1, 33, 33])
+print(lst_2)
+
+
+def double_nearby(lst: list) -> list:
+    """Сделайте функцию, которая параметром будет принимать список и удалять из него одинаковые, рядом стоящие элементы."""
+    new_list = []
+    for i in range(len(lst)):
+        if i == 0 or lst[i] != lst[i-1]:
+            new_list.append(lst[i])
+    return new_list
+
+
+lst_3 = double_nearby([1, 2, 2, 4, 4, 3, 2, 1, 1, 1, 33, 33])
+print(lst_3)
+
+
+def max_min_dict(lst: list) -> dict:
+    """Сделайте функцию, которая параметром будет принимать список с числами и возвращать максимальное и минимальное значение из этого списка в виде следующего словаря:{'max': 9,'min': 1,}"""
+    dct = {'max': max(lst),
+           'min': min(lst)}
+    return dct
+
+
+lst_02 = max_min_dict([1, 2, 3, 4, 5, 6, 7, 8, 9])
+print(lst_02)
+
+
+def division_count(num: int) -> str:
+    """Сделайте функцию, которая параметром будет принимать число, а возвращать количество его делителей."""
+    count = 0
+    for i in range(1, num+1):
+        if num % i == 0:
+            count += 1
+    return f"Колличество делителей для числа {num} = {count}"
+
+
+num_1 = division_count(64)
+print(num_1)
+num_2 = division_count(4)
+print(num_2)
+
+
+def division_count_list(num: int) -> str:
+    """Сделайте функцию, которая параметром будет принимать число, а возвращать список его делителей."""
+    count = []
+    for i in range(1, num+1):
+        if num % i == 0:
+            count.append(i)
+    return f"Список делителей числа {num} = {count}"
+
+
+num_11 = division_count_list(4)
+print(num_11)
+num_12 = division_count_list(64)
+print(num_12)
+
+
+def prime_number(num: int) -> bool:
+    """Сделайте функцию, которая параметром будет принимать число и проверять, простое оно или нет."""
+    if num < 2:
+        return None
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
+
+
+num02 = prime_number(3)
+print(num02)
+num03 = prime_number(6)
+print(num03)
+num04 = prime_number(1)
+print(num04)
+
+
+def even_num(num: int) -> int:
+    """Сделайте функцию, которая параметром будет принимать число и удалять из него четные цифры."""
+    even = []
+    for i in str(num):
+        if int(i) % 2 != 0:
+            even.append(i)
+    return int(''.join(even))
+
+
+num05 = even_num(123456)
+print(num05)
+
+
+def random_num(num1: int, num2: int, num3: int) -> list:
+    """Сделайте функцию, которая заполнит список N случайными числами из заданного промежутка."""
+    import random
+    N = [random.randint(num1, num2) for _ in range(num3)]
+    return N
+
+
+num06 = random_num(1, 15, 5)
+print(f"Случайные числа из заданного диапазона {num06}")
+
+
+def what_num(arg: str) -> bool:
+    """Дана переменная со строкой. Проверьте, что в эта строка представляет собой число, то есть состоит только из цифр."""
+    if str(arg).isdigit():
+        return True
+    return False
+
+
+arg = what_num('123')
+print(arg)
+arg1 = what_num('asdf10')
+print(arg1)
+
+
+def what_decimal(arg: str) -> bool:
+    """Дана переменная со строкой. Проверьте, что эта строка представляет собой дробь."""
+    try:
+        float_value = float(arg)
+        return float_value != int(float_value)
+    except ValueError:
+        return False
+
+
+arg2 = what_decimal('2.12')
+print(arg2)
+arg3 = what_decimal('212')
+print(arg3)
+arg4 = what_decimal('sdf')
+print(arg4)
+
+
+def list_num(text: list) -> int:
+    """Сделайте функцию, которая параметром будет принимать список с числами и возвращать второе по величине число."""
+    sort_list = sorted(text)
+    return f"Второе по виличине число из списка {text} = {sort_list[1]}"
+
+
+text1 = list_num([1, 7, 4, 3])
+print(text1)
+text2 = list_num([122, 567, 323])
+print(text2)
+
+
+def list_num_sort(num1: int, num2: int) -> list:
+    """Сделайте функцию, которая параметрами будет принимать два числа и возвращать список, заполненный целыми числами от минимального параметра до максимального."""
+    list_sort = []
+    # if num1 > num2:
+    for i in range(num1, num2+1):
+        # print(i)
+        list_sort.append(i)
+    return sorted(list_sort)
+    # return f"Первое число должно быть меньше второго!"
+
+
+num07 = list_num_sort(1, 5)
+print(num07)
