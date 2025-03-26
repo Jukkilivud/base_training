@@ -461,13 +461,50 @@ print(text2)
 def list_num_sort(num1: int, num2: int) -> list:
     """Сделайте функцию, которая параметрами будет принимать два числа и возвращать список, заполненный целыми числами от минимального параметра до максимального."""
     list_sort = []
-    # if num1 > num2:
-    for i in range(num1, num2+1):
-        # print(i)
+    for i in range(min(num1, num2), max(num1, num2)+1):
         list_sort.append(i)
     return sorted(list_sort)
-    # return f"Первое число должно быть меньше второго!"
 
 
 num07 = list_num_sort(1, 5)
 print(num07)
+num08 = list_num_sort(10, 1)
+print(num08)
+
+
+def alphabet(num_letters: int = 26) -> list:
+    """Сделайте функцию, которая заполнит список случайными латинскими буквами."""
+    import string
+    import random
+    abc_list = list(string.ascii_lowercase)
+    return random.sample(abc_list, min(num_letters, 26))
+
+
+abc = alphabet(5)
+print(abc)
+
+
+def fibonachi_n(fib: int) -> int:
+    """    Возвращает сумму первых N чисел Фибоначчи.
+    Keyword arguments:
+    argument -- Количество чисел Фибоначчи для суммирования
+    Return: Сумма первых N чисел Фибоначчи
+    """
+    if fib <= 0:
+        return 0
+    elif fib == 1:
+        return 0
+    elif fib == 2:
+        return 1
+
+    fib_sum = 0
+    a, b = 0, 1
+    for _ in range(fib):
+        print(f"Число Фибоначчи: {_}")
+        fib_sum += a
+        a, b = b, a+b
+    return fib_sum
+
+
+fib = fibonachi_n(5)
+print(fib)
