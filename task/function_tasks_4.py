@@ -49,7 +49,7 @@ def latin_text(leng: int) -> str:
     import string
     import random
     abc_alphabet = string.ascii_letters
-    # Мини генератор паролей
+    # Мини генератор паролей!!!!!!!!!!!!!!!!!!!!!!
     return ' '.join(random.sample(abc_alphabet, leng))
 
 
@@ -69,8 +69,90 @@ def upper_text(txt: str) -> str:
 a2 = upper_text("Сделайте функцию, которая параметром будет получать строку со словами, а возвращать строку в верхнем регистре, состоящую из первых букв слов.")
 print(a2)
 
+print('\n')
+
 
 def division_list(lst_num: list) -> list:
     """Сделайте функцию, которая параметром будет принимать список с числами и заменять каждое число на список его делителей."""
-    for i in lst_num:
-        pass
+    div_list = [[j for j in range(1, i+1) if i % j == 0] for i in lst_num]
+    return div_list
+
+
+dl = division_list([12, 6])
+print(dl)
+d2 = division_list([12, 6, 122])
+print(d2)
+
+
+def sorted_text(txt: str) -> str:
+    """Сделайте функцию, которая параметром будет принимать текст со словами, а возвращать текст, в котором эти слова будут отсортированы в алфавитном порядке."""
+    tx = txt.lower()
+    tx = sorted(tx.split(' '))
+    return ' '.join(tx)
+
+
+print('\n')
+
+txt_1 = sorted_text(
+    "Сделайте функцию, которая параметром будет принимать текст со словами, а возвращать текст, в котором эти слова будут отсортированы в алфавитном порядке.")
+print(txt_1)
+
+print('\n')
+
+
+def total_list(txt: list, txt2: list) -> list:
+    """Сделайте функцию, которая параметром будет принимать два списка и возвращать список их общих элементов."""
+    new_list = set(txt) & set(txt2)
+    return list(new_list)
+
+
+tot = total_list(['привет'], ['привет', 'всем'])
+print(tot)
+tot1 = total_list([1, 2, 3, 4], [1, 2, 3, 34, 23])
+print(tot1)
+
+
+def random_num(nums1: int, nums2: int) -> int:
+    """Сделайте функцию, которая будет возвращать случайное число. Функция не должна возвращать одно и тоже число два раза подряд."""
+    import random
+    last_num = None
+    while True:
+        num = random.randint(nums1, nums2)
+        if num != last_num:
+            last_num = num
+            return num
+
+
+r = random_num(1, 3)
+print(r)
+
+
+def list_element(lst: list, elem: int) -> str:
+    """Сделайте функцию, которая параметром будет принимать список и элемент и возвращать следующий за ним элемент."""
+    for i in range(len(lst)):
+        if lst[i] == elem:
+            if i < len(lst) - 1:
+                return lst[i+1]
+            else:
+                return lst[0]
+
+
+ele = list_element([1, 22, 33, 44, 54], 54)
+print(f"Следующий элемент {ele}")
+ele2 = list_element([1, 22, 33, 44, 54], 33)
+print(f"Следующий элемент {ele2}")
+
+print('\n\n')
+
+
+def list_random_elem(lst: list) -> int:
+    """Сделайте функцию, которая параметром будет принимать список и возвращать случайный элемент этого списка."""
+    import random
+    for i in lst:
+        print(i)
+        random_elem = random.randint(lst[0], lst[2])  # Доделать
+    return random_elem
+
+
+r1 = list_random_elem([11, 15, 19])
+print(r1)
