@@ -142,17 +142,102 @@ print(f"Следующий элемент {ele}")
 ele2 = list_element([1, 22, 33, 44, 54], 33)
 print(f"Следующий элемент {ele2}")
 
-print('\n\n')
+print('\n')
 
 
 def list_random_elem(lst: list) -> int:
     """Сделайте функцию, которая параметром будет принимать список и возвращать случайный элемент этого списка."""
     import random
-    for i in lst:
-        print(i)
-        random_elem = random.randint(lst[0], lst[2])  # Доделать
-    return random_elem
+    return random.choice(lst)
 
 
-r1 = list_random_elem([11, 15, 19])
+r1 = list_random_elem([1, 435, 45, 978, 11, 15, 19])
 print(r1)
+
+
+def list_random_more(lst: list) -> list:
+    import random
+    """Сделайте функцию, которая параметром будет принимать список и возвращать список из N случайных элементов этого списка."""
+    return random.choices(lst, k=3)
+
+
+more = list_random_more([1, 12, True, 35, 'asd', 93, 234, 567])
+print(more)
+
+
+def list_random_nodouble(lst: list) -> str:
+    """Сделайте функцию, которая параметром будет принимать список и возвращать случайный элемент этого списка так, чтобы одинаковые элементы не возвращались два раза подряд."""
+    import random
+    last_num = None
+    while True:
+        nodouble = random.choice(lst)
+        if nodouble != last_num:
+            last_num = nodouble
+            return nodouble
+
+
+r2 = list_random_nodouble([1, 12, True, 35, 'asd', 93, 234, 567])
+print(r2)
+
+
+def list_simple(start: int, end: int) -> list:
+    """Сделайте функцию, которая будет возвращать список простых чисел из заданного промежутка."""
+    list_s = []
+    for num in range(start, end+1):
+        if num > 1:
+            for i in range(2, int(num**0.5)+1):
+                if num % i == 0:
+                    break
+            else:
+                list_s.append(num)
+    return list_s
+
+
+simple = list_simple(1, 100)
+print(f"Простые числа: {simple}")
+
+
+def more_nums(*args: int) -> int:
+    """Сделайте функцию, которая параметрами будет принимать любое количество чисел, а возвращать их сумму."""
+    return sum(args)
+
+
+more2 = more_nums(10, 30, 1, 2, 3)
+print(more2)
+
+
+def list_no_double(start: int, end: int, N: int) -> list:
+    """Сделайте функцию, которая заполнит список N случайными числами из заданного промежутка так, чтобы в списке не было подряд двух одинаковых чисел."""
+    import random
+    result_N = []
+    last = None
+    while len(result_N) < N:
+        num = random.randint(start, end)
+        if num != last:
+            result_N.append(num)
+            last = num
+    return result_N
+
+
+s = list_no_double(1, 10, 5)
+print(s)
+
+
+def list_n(start: int, end: int, n: int) -> list:
+    """Сделайте функцию, которая заполнит список N случайными числами из заданного промежутка так, чтобы числа не повторялись."""
+    import random
+    if end - start + 1 < n:
+        raise ValueError(
+            "Диапазон слишком мал для запрашиваемого количества уникальных чисел.")
+    result = set()
+    while len(result) < n:
+        number = random.randint(start, end)
+        result.add(number)
+
+    return list(result)
+
+
+double_no = list_n(1, 10, 5)
+print(double_no)
+# double_no2 = list_n(1, 2, 5)
+# print(double_no2)
